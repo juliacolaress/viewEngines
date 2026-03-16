@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  header(style="text-align: center; padding: 50px 0;")
+    h1 🎉 Empréstimo 
+      span Confirmado!
+    p Parabéns, <strong>#{usuario}</strong>!
+
+  main.container(style="text-align: center;")
+    .card(style="max-width: 500px; margin: 0 auto; padding: 30px; border-top: 5px solid #27ae60; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);")
+      div(style="font-size: 4rem; margin-bottom: 20px;") 📚
+      h2= item
+      p(style="font-size: 1.1rem; color: #555;") Lembre-se de devolver o livro até:
+      h3(style="color: #c0392b; font-size: 1.5rem; background: #fdf2f2; display: inline-block; padding: 10px 20px; border-radius: 5px;") #{prazo}
+      
+      div(style="margin-top: 30px;")
+        a.btn-acao(href="/produto", style="text-decoration: none; padding: 12px 25px; background: #2c3e50; color: white; border-radius: 4px;") Voltar ao Acervo

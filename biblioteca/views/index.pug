@@ -1,5 +1,35 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header(style="background: #2c3e50; color: white; padding: 40px 0; text-align: center;")
+    h1 Biblioteca 
+      span Digital
+    
+    form(action="/produto", method="GET", style="margin-top: 20px;")
+      input(type="text", name="q", placeholder="Pesquisar título ou autor...", value=busca, style="padding: 10px; width: 300px; border-radius: 4px 0 0 4px; border: none; outline: none;")
+      button(type="submit", style="padding: 10px 20px; border-radius: 0 4px 4px 0; border: none; background: #f1c40f; cursor: pointer; font-weight: bold;") Buscar
+
+  main.container(style="margin-top: 30px;")
+    if busca
+      p(style="text-align: center;") Resultados para: 
+        strong #{busca} 
+        a(href="/produto", style="margin-left: 10px; color: #c0392b; font-size: 0.8rem;") (Limpar)
+
+    .grid-livros(style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;")
+      each livro in livros
+        div(class=livro.disponivel ? 'card-livro' : 'card-livro ocupado', style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eee;")
+          
+          div
+            span(class=livro.disponivel ? 'status-tag disponivel' : 'status-tag indisponivel', style="display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 15px;")
+              = livro.disponivel ? '✓ Disponível' : '✗ Emprestado'
+            
+            h3(style="font-size: 1.3rem; margin: 0 0 10px 0; color: #2c3e50; min-height: 50px; display: flex; align-items: center; justify-content: center;")= livro.titulo
+            p(style="font-size: 1rem; color: #666; margin-bottom: 20px;")= livro.autor
+          
+          div
+            if livro.disponivel
+              a.btn-acao(href=`/produto/retirar/${livro.id}`, style="display: block; background: #2c3e50; color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: bold;") Pegar Emprestado
+            else
+              div(style="display: flex; flex-direction: column; gap: 8px;")
+                button(disabled, style="display: block; width: 100%; padding: 12px; background: #e0e0e0; color: #999; border: none; border-radius: 4px; font-weight: bold;") Indisponível
+                a(href=`/produto/devolver/${livro.id}`, style="font-size: 0.85rem; color: #3498db; text-decoration: none; font-weight: bold; text-align: center;") ↩ Marcar como Devolvido

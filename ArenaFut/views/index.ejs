@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= titulo %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+        <h1>Arena <span>Futevôlei</span></h1>
+        <p>Escolha seu horário e prepare o "shark"</p>
+    </header>
+
+    <main class="container">
+        <h2>Quadro de Horários - Quadra 01</h2>
+        <div class="grid-horarios">
+            <% horarios.forEach(function(h) { %>
+                <div class="card <%= h.disponivel ? 'disponivel' : 'ocupado' %>">
+                    <span class="hora"><%= h.hora %></span>
+                    <span class="status"><%= h.disponivel ? 'Livre' : 'Reservado' %></span>
+                    
+                    <% if(h.disponivel) { %>
+                        <a href="/agendar/<%= h.hora %>" style="text-decoration: none;">
+                            <button class="btn-reservar" style="width: 100%;">Reservar</button>
+                        </a>
+                    <% } %>
+                </div>
+            <% }); %> </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= titulo %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <header>
+        <h1>Reserva <span>Confirmada</span>!</h1>
+        <p>Tudo pronto para o jogo, <strong><%= nome %></strong>.</p>
+    </header>
+
+    <main class="container" style="text-align: center;">
+        <div class="card" style="border-top: 5px solid var(--success);">
+            <div style="font-size: 3rem;">🏐</div>
+            <h2>Horário: <%= horario %></h2>
+            <p>Não esqueça o protetor solar e a hidratação!</p>
+            <br>
+            <a href="/" class="btn-reservar" style="text-decoration: none; padding: 10px 20px;">Voltar ao Início</a>
+        </div>
+    </main>
+</body>
+</html>

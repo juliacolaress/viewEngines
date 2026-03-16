@@ -1,0 +1,14 @@
+<div class="post-container" style="max-width: 700px; margin: 50px auto; padding: 20px; font-family: 'Georgia', serif;">
+    <a href="/" style="text-decoration: none; color: #3498db; font-weight: bold;">← Voltar ao Blog</a>
+    
+    <header style="margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+        <h1 style="font-size: 2.8rem; color: #2c3e50; line-height: 1.1;">{{post.titulo}}</h1>
+        <p style="color: #999; margin-top: 10px;">Publicado em {{post.data}} | Categoria: {{post.categoria}}</p>
+    </header>
+
+    <article style="font-size: 1.25rem; line-height: 2; color: #333; margin-top: 40px;">
+        <p>{{{post.resumo}}}</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed efficitur, leo at iaculis convallis, elit velit varius quam, at eleifend nisi augue vel tellus.</p>
+        <p>Proin ut ex quis urna scelerisque scelerisque. Mauris elementum, ante sit amet finibus pretium, nunc nunc ornare turpis, vitae gravida justo nulla sit amet nisl.</p>
+    </article>
+</div>

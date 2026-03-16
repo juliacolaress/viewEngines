@@ -1,8 +1,62 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --success: #27ae60;
+    --danger: #c0392b;
+    --bg: #f9f9f9;
+    --text: #333;
 }
 
-a {
-  color: #00B7FF;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    color: var(--text);
 }
+
+header {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 2.5rem 0;
+    border-bottom: 5px solid #f1c40f; /* Detalhe amarelo da arena adaptado */
+}
+
+header h1 span {
+    color: #f1c40f;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+/* GRID DOS LIVROS */
+.grid-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARD DO LIVRO */
+.card-livro {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    
+    /* Mágica para alinhar tudo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-livro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
